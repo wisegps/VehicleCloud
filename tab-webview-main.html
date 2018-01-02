@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				background-color: #080808;
+				background: url('ui/back2.png') no-repeat fixed top;
+				background-size:100%;
+			}
+			header {
+				box-sizing: content-box;
+				background-color: #b01526!important;
+				background: url('ui/navbar.png') no-repeat fixed top!important;
+				background-size:100%!important;
+				border-bottom: 0px solid rgba(247, 247, 247, 0)!important;
+			}
+			#title {
+				color:white!important;
+			}
+			.mui-popover {
+				height: 100px;
+				width: 150px;
+			}
+			#topPopover {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+				font-size: 14px;
+			}
+			#topPopover .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+			.arrow {
+				padding-top: 10px;
+				color: #fff;
+			}
+			.mui-tab-item .mui-badge {
+				margin-left: -5px!important;
+			    padding: 4px 4px!important;
+			    border-radius: 50%;
+			}
+			
+			.mui-bar-tab {
+				text-align: center;
+				height: 74px;
+			}
+
+			.mui-bar-tab .mui-tab-item.mui-active {
+			    color: #F00000;
+			}
+			
+			.mui-bar-tab .mui-tab-item {
+			    /*color: #BEDFEF;*/
+			}
+			
+			.mui-bar {
+				/*background-color: transparent;*/
+				background-color: #080808;
+				background: url('ui/tabbar2.png') no-repeat;
+				background-size:100%;				
+			    -webkit-box-shadow: 0 0 0px rgba(0,0,0,.85); 
+			    box-shadow: 0 0 0px rgba(0,0,0,.85); 
+			    line-height: 50px;
+			}
+			
+			.mui-bar-nav .mui-badge {
+			    margin-left: -22px!important;
+			    /* padding: 4px 4px!important; */
+			    /* border-radius: 50%; */
+			    margin-top: 7px;
+			}
+			
+			#alertBadge, #notifyBadge {
+				display: none;
+			}
+			
+			#tabbar {
+				width: 85%;
+				vertical-align: middle;
+			}
+			
+			.tabbar-label {
+				position: absolute;
+				vertical-align: middle;
+				color: #fff;
+				font-size: 11px;
+				margin-top: 4px;
+			}
+			
+			.tabbar-label.control {
+				margin-left: -77%;
+			}
+			
+			.tabbar-label.flameout {
+				margin-left: -52%;
+			}
+			
+			.tabbar-label.more {
+				margin-left: -22%;
+			}
+			
+			.mui-bar .mui-icon {
+			    font-size: 28px;
+			}
+			
+			.mui-bar-tab .mui-tab-item .mui-icon {
+			    top: 32px;
+			}
+			
+			.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+			    padding-top: 10px;
+			    margin-bottom: -10px;
+			    font-size: 13px;
+			}			
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav"> 
+			<a id="vehicle" class="mui-action-menu mui-icon iconfont icon-list mui-pull-left" style="color: #fff"></a>
+			<a id="playback" class="mui-icon iconfont icon-xianshiguiji mui-pull-left" style="color: #fff;display: none;"></a>
+			<a id="add" class="mui-icon iconfont icon-add1 mui-pull-right" style="color: #fff;" href="#topPopover"></a>
+			<a id="alert" class="mui-icon iconfont icon-baojing mui-pull-right mui-hidden" style="color:#FFFFFF"><span id="alertBadge" class="mui-badge">0</span></a>			
+			<h1 id="title" class="mui-title" data-i18n="app.name">车管云</a>
+			</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="default" class="mui-tab-item mui-active" href="tab-webview-subpage-control.html">
+				<span class="mui-icon iconfont icon-write"></span>
+				<span class="mui-tab-label" data-i18n="main.home">控制</span>
+			</a>
+			<a id="location" class="mui-tab-item" href="tab-webview-subpage-map.html">
+				<span class="mui-icon iconfont icon-weizhiicon"><span id="alertTip" class="mui-badge mui-hidden"></span></span>
+				<span class="mui-tab-label" data-i18n="main.monitor">监控</span>
+			</a>
+			<a id="more" class="mui-tab-item" href="tab-webview-subpage-more.html">
+				<span class="mui-icon iconfont icon-More"></span>
+				<span class="mui-tab-label" data-i18n="main.more">更多</span>
+			</a>
+			<!--<img id="tabbar" src="ui/tarbar.png">
+			<span id="control" class="tabbar-label control">Control</span>
+			<span id="flameout" class="tabbar-label flameout">Flame out</span>
+			<span id="more" class="tabbar-label more">More</span>-->
+		</nav>
+		<script src="./js/mui.min.js"></script>
+		<script src="./js/locales.js" ></script>
+		<script src="./js/immersed.js" ></script>
+		<script src="./js/menu.js" ></script>		
+		<script src="js/wistorm/wspub.js"></script>
+		<script src="js/wistorm/define.js"></script>
+		<script src="js/wistorm/wistorm.js"></script>
+		<script src="js/wistorm/md5.js"></script>
+		<script src="js/app.js"></script>	
+		<script type="text/javascript" charset="utf-8"> 
+			 //mui初始化
+			mui.init();
+			var subpages = ['tab-webview-subpage-control.html', 'tab-webview-subpage-map.html', 'tab-webview-subpage-more.html'];
+//			alert(immersed);
+			var subpage_style = {
+				top: (45 + immersed) + 'px',
+				bottom: '80px',
+				background: 'transparent'
+			};
+			
+			var aniShow = {};
+			var settingPage = null;
+			
+			var showPage = function(href){
+				var targetTab = href;
+				if (targetTab == activeTab) {
+					return;
+				}
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if(mui.os.ios||aniShow[targetTab]){
+					plus.webview.show(targetTab);
+				}else{
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow,temp);
+					plus.webview.show(targetTab,"fade-in",300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;				
+			};
+			
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+//				// 监听点击消息事件
+//				plus.push.addEventListener( "click", function( msg ) {
+//					var payload = (plus.os.name=='iOS') ? msg.payload: JSON.parse(msg.payload);
+//					payload = payload || {};
+//					enterPage(payload);
+//				}, false );
+//				// 监听在线消息事件
+//				plus.push.addEventListener( "receive", function( msg ) {
+//					var payload = (plus.os.name=='iOS') ? msg.payload: JSON.parse(msg.payload);
+//					payload = payload || {};
+//					var bts = [i18next.t("alert.no"), i18next.t("alert.yes")];
+//					var title = i8next.t("push." + payload.type + ".title");
+//					var content = i8next.t("push." + payload.type + ".content");
+//					plus.nativeUI.confirm(content, function(e) {
+//						var i = e.index;
+//						if(i == 1) {
+//							enterPage(payload);
+//						}
+//					}, title, bts);
+//				}, false);			
+					
+				var self = plus.webview.currentWebview();
+				for(var i = 0; i < 3; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if(i > 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] ="true";
+						mui.extend(aniShow,temp);
+					}
+					self.append(sub);
+				}
+
+				playbackPage = mui.preload({
+					"id": 'playback',
+					"url": 'playback.html'
+				});	
+				
+				// 报警列表界面
+				alertPage = mui.preload({
+					"id": 'alert-list-main',
+					"url": 'alert-list-main2.html'
+				});	
+				
+//				var playbackButton = document.getElementById('playback');
+//				playbackButton.addEventListener('tap', function(event) {
+//					mui.fire(playbackPage, 'refreshGps', null);
+//					playbackPage.show("pop-in");
+//				});	
+
+				var addVehiclePage = mui.preload({
+					"id": 'vehicle-add',
+					"url": 'vehicle.html'
+				});	
+				var addButton = document.getElementById('add');
+				addButton.addEventListener('tap', function(event) {
+					var btnArray = [{title:"添加车辆"},{title:"编辑车辆"},{title:"删除车辆"}];
+					plus.nativeUI.actionSheet( {
+						title:"车辆管理",
+						cancel:"取消",
+						buttons:btnArray
+					}, function(e){
+//						alert(e.index);
+						var index = e.index;
+						switch (index){
+							case 0:
+								break;
+							case 1:
+//								alert("添加车辆");
+								var vehiclePage = plus.webview.getWebviewById('vehicle-add');
+								if(vehiclePage){
+									mui.fire(vehiclePage, 'show', {mode: 0});
+								}
+								setTimeout(function(){
+									addVehiclePage.show("pop-in");									
+								}, 100);
+								break;
+							case 2:
+//								alert("添加车辆");
+								var currentVehicle = app.getCurrentVehicle();
+								if(currentVehicle){
+									var vehiclePage = plus.webview.getWebviewById('vehicle-add');
+									if(vehiclePage){
+										mui.fire(vehiclePage, 'show', {mode: 1});
+									}
+									setTimeout(function(){
+										addVehiclePage.show("pop-in");									
+									}, 100);
+								}else{
+									plus.nativeUI.toast('请选择车辆');
+								}
+								break;								
+							case 3:
+//								alert("删除车辆");
+								//删除车辆
+								var currentVehicle = app.getCurrentVehicle();
+								if(currentVehicle){
+									var bts=["否","是"];
+									plus.nativeUI.confirm("确认删除车辆 [" + currentVehicle.name + "]?" ,function(e){
+										var i=e.index;
+//										outLine( "按\""+((i>=0)?bts[e.index]:"返回")+"\"关闭！" );
+										if(i == 1){
+											app.deleteVehicle(currentVehicle.objectId, currentVehicle.did, function(err){
+												if(err){
+													plus.nativeUI.toast(err);
+													return;
+												}
+												plus.nativeUI.toast('删除车辆[' + currentVehicle.name + '] 成功.');
+												// 清除选中车辆
+												app.setCurrentVehicle(null);
+												title.innerHTML = '车管云';
+												// 刷新车辆列表
+												app.updateTime = new Date(0);
+												vehiclePage = plus.webview.getWebviewById('vehicle-list');
+												mui.fire(vehiclePage, 'refreshVehicle', null);
+											});
+										}
+									},"删除车辆",bts);
+								}else{
+									plus.nativeUI.toast('请选择车辆');
+								}
+								break;
+						}
+					});
+				});	
+				
+				var backButtonPress = 0;
+				mui.back = function(event) {
+					console.log(backButtonPress);
+					backButtonPress++;
+					if (backButtonPress > 1) {
+						plus.runtime.quit();
+					} else {
+						plus.nativeUI.toast("再按一次退出");
+					}
+					setTimeout(function() {
+						backButtonPress = 0;
+					}, 1000);
+					return false;
+				};
+			});
+			 //当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			
+			 //选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if (targetTab == activeTab) {
+					return;
+				}
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if(mui.os.ios||aniShow[targetTab]){
+					plus.webview.show(targetTab);
+				}else{
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow,temp);
+					plus.webview.show(targetTab,"fade-in",300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+			
+//			var controlButton = document.getElementById('control');
+//			controlButton.addEventListener('tap', function(event) {
+//				console.log('gocontrol');
+//				showPage('tab-webview-subpage-control.html');
+//			});	
+//			
+//			var moreButton = document.getElementById('more');
+//			moreButton.addEventListener('tap', function(event) {
+//				console.log('gomore');
+//				showPage('tab-webview-subpage-more.html');
+//			});		
+			
+//			var flameoutButton = document.getElementById('flameout');
+//			flameoutButton.addEventListener('tap', function(event) {
+//				console.log('flameout');
+//				var controlPage = plus.webview.getWebviewById('tab-webview-subpage-control.html');
+//				mui.fire(controlPage, 'acc', null);	
+//			});	
+			
+			 //自定义事件，模拟点击“首页选项卡”
+			document.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("location");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+				if (defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});	
+			document.addEventListener('gogps', function() {
+				showPage('tab-webview-subpage-map.html');
+			});	
+//			
+//			document.addEventListener('gogps', function() {
+//				showPage('tab-webview-subpage-map-bak.html');
+//			});	
+			window.addEventListener('refreshTitle', function(event){
+				title.innerHTML = event.detail.name;
+				console.log("更新详情信息。。。。。。。。。。。。。。。。。"+JSON.stringify(title.innerHTML));
+			});				
+		</script>
+	</body>
+</html>

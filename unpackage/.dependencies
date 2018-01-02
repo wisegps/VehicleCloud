@@ -1,0 +1,236 @@
+{
+  "tab-webview-subpage-map.html": {
+    "href": "tab-webview-subpage-map.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/mui.jsonp.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js",
+      "js/mapjs/define.js",
+      "js/mapjs/global.js",
+      "font/fontawesome-webfont.woff",
+      "font/fontawesome-webfont.ttf",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf"
+    ],
+    "priority": 0
+  },
+  "alert-list-main2.html": {
+    "href": "alert-list-main2.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/mui.min.js",
+      "js/immersed.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js"
+    ],
+    "priority": 1
+  },
+  "tab-webview-subpage-control.html": {
+    "href": "tab-webview-subpage-control.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/wistorm/define.js",
+      "js/wistorm/md5.js",
+      "js/wistorm/wistorm.js",
+      "js/app.js",
+      "js/mapjs/define.js",
+      "js/mapjs/global.js",
+      "images/flameOut.png",
+      "images/unlockOff.png",
+      "images/lockOff.png",
+      "images/doorOpen.png",
+      "images/unlockOn.png",
+      "images/lockOn.png",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "alert-list-main2.html"
+    ],
+    "priority": 1
+  },
+  "vehicle-list.html": {
+    "href": "vehicle-list.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "images/objects/normal_offline_0.gif",
+      "images/objects/normal_run_0.gif",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/mui.min.js",
+      "js/immersed.js",
+      "images/vicon.png",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js"
+    ],
+    "refer": [
+      "tab-webview-subpage-map.html",
+      "tab-webview-subpage-control.html"
+    ],
+    "priority": 0
+  },
+  "barcode_scan.html": {
+    "href": "barcode_scan.html",
+    "resources": [
+      "js/common.js",
+      "css/common.css"
+    ],
+    "priority": 2
+  },
+  "vehicle.html": {
+    "href": "vehicle.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/style.css",
+      "js/mui.min.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js",
+      "js/immersed.js"
+    ],
+    "refer": [
+      "barcode_scan.html"
+    ],
+    "priority": 2
+  },
+  "forget_password.html": {
+    "href": "forget_password.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/mui.min.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js",
+      "js/immersed.js"
+    ],
+    "priority": 3
+  },
+  "tab-webview-subpage-more.html": {
+    "href": "tab-webview-subpage-more.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/locales.js",
+      "js/wistorm/wspub.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/immersed.js",
+      "js/app.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/style.css"
+    ],
+    "refer": [
+      "forget_password.html"
+    ],
+    "priority": 3
+  },
+  "playback.html": {
+    "href": "playback.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/mui.jsonp.js",
+      "js/immersed.js",
+      "js/wistorm/wspub.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js",
+      "js/mapjs/define.js",
+      "js/mapjs/global.js",
+      "js/mapjs/gomap.js",
+      "js/mapjs/wisemap.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf"
+    ],
+    "priority": 4
+  },
+  "tab-webview-main.html": {
+    "href": "tab-webview-main.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "js/mui.min.js",
+      "js/locales.js",
+      "js/immersed.js",
+      "js/wistorm/wspub.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "reg.html": {
+    "href": "reg.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/style.css",
+      "js/mui.min.js",
+      "js/wistorm/define.js",
+      "js/wistorm/wistorm.js",
+      "js/wistorm/md5.js",
+      "js/app.js",
+      "js/immersed.js"
+    ],
+    "priority": 2
+  },
+  "login.html": {
+    "href": "login.html",
+    "resources": [
+      "images/default.png"
+    ],
+    "refer": [
+      "forget_password.html",
+      "reg.html"
+    ],
+    "priority": 0
+  }
+}
